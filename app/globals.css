@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6ecd2;
+  --foreground: #16130f;
+
+  --color-cream: #f6ecd2;
+  --color-paper: #fdf6e3;
+  --color-ink: #16130f;
+  --color-sunflower: #f5b700;
+  --color-gold: #eea420;
+  --color-marigold: #f2994a;
+  --color-burnt: #d9622b;
+  --color-crimson: #b8380f;
+  --color-starry: #1f3a5f;
+  --color-sky: #3e6d9c;
+  --color-olive: #6e7f3c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--color-cream);
+  --color-paper: var(--color-paper);
+  --color-ink: var(--color-ink);
+  --color-sunflower: var(--color-sunflower);
+  --color-gold: var(--color-gold);
+  --color-marigold: var(--color-marigold);
+  --color-burnt: var(--color-burnt);
+  --color-crimson: var(--color-crimson);
+  --color-starry: var(--color-starry);
+  --color-sky: var(--color-sky);
+  --color-olive: var(--color-olive);
+  --font-display: var(--font-anton);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-space-mono);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-mono), monospace;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(22, 19, 15, 0.12) 1px, transparent 0);
+  background-size: 22px 22px;
 }
+
+::selection {
+  background-color: var(--color-sunflower);
+  color: var(--color-ink);
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px var(--color-ink);
+}
+
+@keyframes swirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-swirl-slow {
+  animation: swirl 40s linear infinite;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.22) translate3d(-2.5%, -1.5%, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(0, 0, 0);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 40s ease-in-out infinite;
+  will-change: transform;
+}
+
